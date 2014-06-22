@@ -18,7 +18,7 @@ eg. ALL  traffic  0  65535 0.0.0.0/0
 # 6. Use iPad or iPhone to connect the vpn.
 server: Public DNS or Public IP
 account & password: use the name and password in /etc/ppp/chap-secrets
-secret rank: None (No use OpenSSL command) or Auto (use OpenSSL command create password)
+secret rank: None (No use OpenSSL) or Auto (Use OpenSSL command create password)
 Sent all flows: Yes
 
 
