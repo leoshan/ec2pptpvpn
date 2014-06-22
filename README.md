@@ -20,6 +20,3 @@ server: Public DNS or Public IP
 account & password: use the name and password in /etc/ppp/chap-secrets
 secret rank: None (No use OpenSSL) or Auto (Use OpenSSL command create password)
 Sent all flows: Yes
-
-
-
