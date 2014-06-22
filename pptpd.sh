@@ -3,10 +3,6 @@
 # Ripped from http://blog.diahosting.com/linux-tutorial/pptpd/
 # pptpd source rpm packing by it's authors
 #
-# WARNING:
-# first ms-dns setting to 172.16.0.23, 172.16.0.23 was showing on my
-# /etc/resolv.conf, I'm not sure this is the same on all Amazon AWS zones.
-#
 # You need to adjust your "Security Groups" which you are using too.
 # The security rules which I'm using looks like:
 # =================================
