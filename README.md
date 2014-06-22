@@ -2,12 +2,23 @@ ec2pptpvpn
 ==========
 Use AWS EC2 to build a PPTP VPN server. This is a deploy script of shell. 
 
-# First use putty connect to ec2 instance. 
-# Update the ec2 AMI instance
+# 1. Use putty connect to ec2 instance. 
+Apply an aws account and create an ec2 instance(choose region in Tykyo,for speed). 
+To do as "Connecting to Linux/Unix Instances from Windows Using PuTTY"
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html
+# 2. Update the ec2 AMI instance
 yum update
-# Set root password
+# 3. Set root password
 sudo passwd root
-
+# 4.Use root user download the script pptpd.sh and execute it.
+wget https://github.com/leoshan/ec2pptpvpn/blob/master/pptpd.sh
+chmod 744 pptpd.sh
+./pptpd.sh
+# 5. Use iPad or iPhone to connect the vpn.
+server: Public DNS or Public IP
+account & password: use the name and password in /etc/ppp/chap-secrets
+secret rank: none
+Sent all flows: Yes
 
 
 
