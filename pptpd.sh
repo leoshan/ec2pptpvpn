@@ -50,8 +50,9 @@ pass=`openssl rand 8 -base64`
 if [ "$1" != "" ]
 then pass=$1
 fi
-
 echo "vpn pptpd ${pass} *" >> /etc/ppp/chap-secrets
+
+# also can use write chap-secret way to add account
 # echo "vpn2 pptpd huawei *" >> /etc/ppp/chap-secrets
 # echo "vpn3 pptpd huawei *" >> /etc/ppp/chap-secrets
 
