@@ -53,8 +53,8 @@ fi
 echo "vpn pptpd ${pass} *" >> /etc/ppp/chap-secrets
 
 # also can use write chap-secret way to add account
-# echo "vpn2 pptpd huawei *" >> /etc/ppp/chap-secrets
-# echo "vpn3 pptpd huawei *" >> /etc/ppp/chap-secrets
+# echo "vpn2 pptpd password *" >> /etc/ppp/chap-secrets
+# echo "vpn3 pptpd password *" >> /etc/ppp/chap-secrets
 
 # config the iptables
 iptables -t nat -A POSTROUTING -s 192.168.240.0/24 -j SNAT --to-source `ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk 'NR==1 { print $1}'`
