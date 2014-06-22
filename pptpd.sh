@@ -36,7 +36,7 @@ yum -y install ppp
 mkdir ~/src
 cd ~/src
 wget http://poptop.sourceforge.net/yum/stable/packages/pptpd-1.4.0-1.el6.x86_64.rpm
-rpm -Uhv pptpd*.rpm
+rpm -Uhv pptpd-1.4.0-1.el6.x86_64.rpm
 
 # Config /etc/pptpd.conf, /etc/sysctl.conf and /etc/ppp/options.pptpd
 sed -i 's/^logwtmp/#logwtmp/g' /etc/pptpd.conf
@@ -49,6 +49,7 @@ sysctl -p
 echo "ms-dns 8.8.8.8" >> /etc/ppp/options.pptpd
 echo "ms-dns 8.8.4.4" >> /etc/ppp/options.pptpd
 
+# config the account and password
 pass=`openssl rand 8 -base64`
 if [ "$1" != "" ]
 then pass=$1
@@ -56,9 +57,11 @@ fi
 
 echo "vpn pptpd ${pass} *" >> /etc/ppp/chap-secrets
 
+# config the iptables
 iptables -t nat -A POSTROUTING -s 192.168.240.0/24 -j SNAT --to-source `ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk 'NR==1 { print $1}'`
 iptables -A FORWARD -p tcp --syn -s 192.168.240.0/24 -j TCPMSS --set-mss 1356
 service iptables save
+
 
 chkconfig iptables on
 chkconfig pptpd on
