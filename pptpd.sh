@@ -62,7 +62,7 @@ iptables -t nat -A POSTROUTING -s 192.168.240.0/24 -j SNAT --to-source `ifconfig
 iptables -A FORWARD -p tcp --syn -s 192.168.240.0/24 -j TCPMSS --set-mss 1356
 service iptables save
 
-
+#config 
 chkconfig iptables on
 chkconfig pptpd on
 
