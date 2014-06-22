@@ -45,7 +45,7 @@ sysctl -p
 echo "ms-dns 8.8.8.8" >> /etc/ppp/options.pptpd
 echo "ms-dns 8.8.4.4" >> /etc/ppp/options.pptpd
 
-# config the account and password
+# config the account, password and range ip
 pass=`openssl rand 8 -base64`
 if [ "$1" != "" ]
 then pass=$1
@@ -66,4 +66,5 @@ chkconfig pptpd on
 service iptables restart
 service pptpd start
 
-echo -e "VPN service is installed, your VPN username is \033[1mvpn\033[0m, VPN password is \033[1m${pass}\033[1m"
+# echo -e "VPN service is installed, your VPN username is \033[1mvpn\033[0m, VPN password is \033[1m${pass}\033[1m"
+echo -e "VPN service is installed, your VPN username is vpn, VPN password is ${pass}"
