@@ -58,11 +58,12 @@ iptables -t nat -A POSTROUTING -s 192.168.240.0/24 -j SNAT --to-source `ifconfig
 iptables -A FORWARD -p tcp --syn -s 192.168.240.0/24 -j TCPMSS --set-mss 1356
 service iptables save
 
-#config 
+# config service on boot
 chkconfig iptables on
 chkconfig pptpd on
 
-service iptables start
+# start service
+service iptables restart
 service pptpd start
 
 echo -e "VPN service is installed, your VPN username is \033[1mvpn\033[0m, VPN password is \033[1m${pass}\033[1m"
