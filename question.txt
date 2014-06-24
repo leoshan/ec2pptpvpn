@@ -1,4 +1,5 @@
-1. ec2安全组网络端口开启精细化，待解决
+1. ec2安全组网络端口开启精细化(只开1723Tcp端口即可，已测试解决)
 2. 多账号登录pptp vpn，待解决
 3. 服务器地址变化，试验相关解决方案，待解决
-4，linux openvpn aws ec2 搭建
+4，linux openvpn aws ec2 搭建（已参照文档搭建成功，另开工程介绍）
+5，解决android上twitter不可访问（已用安装squid proxy server解决）
