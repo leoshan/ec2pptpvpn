@@ -13,14 +13,16 @@ sudo passwd root
 wget https://raw.githubusercontent.com/leoshan/ec2pptpvpn/master/pptpd.sh
 chmod 744 pptpd.sh
 ./pptpd.sh
-# 5. Adjust the ec2 "Security Groups", open the ports for instance.
-Top  traffic  0  65535 0.0.0.0/0
+# 5. Adjust the ec2 "Security Groups", open the PPTPD ports Tcp 1723 for instance.
+TCP  1723 0.0.0.0/0
 # 6. Use iPad or iPhone to connect the vpn.
 server: Public DNS or Public IP
 account & password: use the name and password in /etc/ppp/chap-secrets
 secret rank: None (No use OpenSSL) or Auto (Use OpenSSL command create password)
 Sent all flows: Yes
-=================================================================================
+
+Install squid proxy server
+=====================================================
 # 7. For visit twitter, deploy squid proxy server. 
 1) yum install squid
 2) vim /etc/squid/squid.conf
@@ -35,7 +37,7 @@ Sent all flows: Yes
    netstat -ntpl
 # 8. Set IP proxy on twitter App.
 IP: 192.168.240.1 (The localip of pptp vpn config, also is the gateway)
-Port: 3128 (Don't use set secret group port)
+Port: 3128 (Don't use set the port in secret group)
 
 
 
