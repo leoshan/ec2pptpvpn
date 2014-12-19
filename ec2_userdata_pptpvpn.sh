@@ -21,7 +21,7 @@
 
 #initialize 
 yum update -y
-
+yum -y install mail
 # Clean the old config
 yum remove -y pptpd ppp
 iptables --flush POSTROUTING --table nat
